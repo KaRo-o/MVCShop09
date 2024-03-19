@@ -30,7 +30,10 @@
 					//Debug..
 					//alert(  $( "td.ct_btn01:contains('¼öÁ¤')" ).html() );
 					self.location = "/user/updateUser?userId=${user.userId}"
-				});
+			});
+			
+			$("td.ct_btn01").css('cursor','pointer');
+			 
 		});
 		
 	</script>

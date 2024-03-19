@@ -31,7 +31,7 @@
 			//==> 검색 Event 연결처리부분
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			//==> 1 과 3 방법 조합 : $("tagName.className:filter함수") 사용함. 
-			 $( "td.ct_btn01:contains('검색')" ).on("click" , function() {
+			 $( "td.ct_btn01:contains('검색')" ).css('cursor', 'pointer').on("click" , function() {
 				//Debug..
 				//alert(  $( "td.ct_btn01:contains('검색')" ).html() );
 				fncGetUserList(1);
@@ -48,7 +48,7 @@
 			});
 			
 			//==> UI 수정 추가부분  :  userId LINK Event End User 에게 보일수 있도록 
-			$( ".ct_list_pop td:nth-child(3)" ).css("color" , "red");
+			$( ".ct_list_pop td:nth-child(3)" ).css("color" , "red").css('text-decoration', 'underline').css('cursor', 'pointer');
 			$("h7").css("color" , "red");
 			
 			
@@ -61,7 +61,8 @@
 			//console.log ( $(".ct_list_pop:nth-child(4)" ).html() ); //==> ok
 			//console.log ( $(".ct_list_pop:nth-child(5)" ).html() ); 
 			//console.log ( $(".ct_list_pop:nth-child(6)" ).html() ); //==> ok
-			//console.log ( $(".ct_list_pop:nth-child(7)" ).html() ); 
+			//console.log ( $(".ct_list_pop:nth-child(7)" ).html() );
+			console.log ( $(".ct_list_pop:nth-child(8)" ).html() ); //==> ok
 		});	
 	</script>		
 	

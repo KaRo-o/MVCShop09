@@ -22,7 +22,7 @@
 			 
 			//==> login Event 연결처리부분
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-		 	$( "td[width='115']:contains('login')" ).on("click" , function() {
+		 	$( "td:contains('login')" ).on("click" , function() {
 				//Debug..
 				//alert(  $( "td[width='115']:contains('login')" ).html() );
 				$(window.parent.frames["rightFrame"].document.location).attr("href","/user/login");
@@ -31,7 +31,7 @@
 			
 			//==> login Event 연결처리부분
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-		 	$( "td[width='56']:contains('logout')" ).on("click" , function() {
+		 	$( "td:contains('logout')" ).on("click" , function() {
 				//Debug..
 				//alert(  $( "td[width='56']:contains('logout')" ).html() );
 				$(window.parent.document.location).attr("href","/user/logout");
@@ -63,15 +63,16 @@
 						////////////////////////////////////////////////////////////////////////////////////////////////// -->
 						login
 		           </c:if>   
-	          </td>
-	          <td width="14">&nbsp;</td>
-	          <td width="56">
-		          <c:if test="${ ! empty user }">
+		           <c:if test="${ ! empty user }">
 		          		 <!-- ////////////////// jQuery Event 처리로 변경됨 ///////////////////////// 
 		            	<a href="/logout.do" target="_parent">logout</a>
 						////////////////////////////////////////////////////////////////////////////////////////////////// -->
 		            	logout
-		           </c:if>
+		         </c:if>
+	          </td>
+	          <td width="14">&nbsp;</td>
+	          <td width="56">
+		          
 	          </td>
 	        </tr>
 	      </table>

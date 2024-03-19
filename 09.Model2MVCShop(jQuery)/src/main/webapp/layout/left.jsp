@@ -42,6 +42,11 @@
 				//alert(  $( ".Depth03:contains('회원정보조회')" ) );
 		 		$(window.parent.frames["rightFrame"].document.location).attr("href","/user/listUser");
 			}); 
+			
+			$(".Depth03:contains('판매상품등록')").on('click', function() {
+				$(window.parent.frames['rightFrame'].document.location).attr("href",)
+			})
+			
 		});	
 		 
 	</script>

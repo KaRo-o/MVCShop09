@@ -77,6 +77,8 @@
 			$("img[src='/images/btn_add.gif']").on("click" , function() {
 				self.location = "/user/addUser"
 			});
+			
+			$( '.button' ).css('cursor', 'pointer');
 		});
 		
 	</script>		
@@ -157,7 +159,7 @@
                          		<img src="/images/btn_login.gif" width="56" height="20" border="0"/>
                          	</a>
 							////////////////////////////////////////////////////////////////////////////////////////////////// -->
-                         		<img src="/images/btn_login.gif" width="56" height="20" border="0"/>
+                         		<img src="/images/btn_login.gif" width="56" height="20" border="0" class="button"/>
                          </td>
                          <td width="10">&nbsp;</td>
                          <td width="70">
@@ -166,7 +168,7 @@
                          		<img src="/images/btn_add.gif" width="70" height="20" border="0">
                          	</a>
 							////////////////////////////////////////////////////////////////////////////////////////////////// -->
-                       			<img src="/images/btn_add.gif" width="70" height="20" border="0">
+                       			<img src="/images/btn_add.gif" width="70" height="20" border="0" class="button">
                          </td>
                        </tr>
                      </table>
