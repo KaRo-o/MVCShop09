@@ -15,7 +15,16 @@ public class Search {
 	//==> ÂüÁ¶
 	private int endRowNum;
 	private int startRowNum;
+	private String userId;
 	
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
 	///Constructor
 	public Search() {
 	}
