@@ -20,6 +20,8 @@
 		//==> jQuery 적용 추가된 부분
 		 $(function() {
 			 
+			$( 'td[width="115"]').css('cursor','pointer').css('text-align','center');
+			 
 			//==> login Event 연결처리부분
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 		 	$( "td:contains('login')" ).on("click" , function() {

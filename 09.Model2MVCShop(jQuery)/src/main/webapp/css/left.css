@@ -1,8 +1,8 @@
 
-/* �̹��� �������� ���� */
+/* 占싱뱄옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 */
 IMG {  border-style: none}
 
-/* ��ũ�ѹ� ���� */
+/* 占쏙옙크占싼뱄옙 占쏙옙占쏙옙 */
 BODY {
 scrollbar-3dlight-color: #ffffff;
 scrollbar-highlight-color: #ffffff;
@@ -13,9 +13,9 @@ scrollbar-darkshadow-color: #ffffff;
 scrollbar-shadow-color: #B8C4C5;}
 
 
-a.menu		{ font-size: 9pt; font-family: ����ü; color: #ff0000; text-decoration: none; }
+a.menu		{ font-size: 9pt; font-family: 占쏙옙占쏙옙체; color: #ff0000; text-decoration: none; }
 
-/* ��ũ �Ӽ� */
+/* 占쏙옙크 占쌈쇽옙 */
 A.:link {  color: #333333 ; text-decoration: none; cursor:hand}
 A.:hover {  color: #347BD9 ;text-decoration: none; }
 A.:active {  color: #347BD9 ; text-decoration: none;}
@@ -23,11 +23,11 @@ A.:visited {  color: #333333 ; text-decoration: none;}
 A.: { onfocus : "this.blur();" }
 
 
-/* ��ü �ؽ�Ʈ �Ӽ� */
+/* 占쏙옙체 占쌔쏙옙트 占쌈쇽옙 */
 BODY, TABLE, TR, TD, SELECT,INPUT,DIV,SPAN,FORM,TEXTAREA
-{ font-family: "MS Gothic"; font-size: 12px; color: #333333; }
+{ font-family: "MS Gothic"; font-size: 12px; color: #333333;  }
 
-/* Ÿ��Ʋ1 ����̹����� �ؽ�Ʈ �Ӽ� */
+/* 타占쏙옙틀1 占쏙옙占쏙옙譴占쏙옙占쏙옙占� 占쌔쏙옙트 占쌈쇽옙 */
  .Depth01 { 
 		font-size: 14px; 
 	color: #ffffff;
@@ -38,7 +38,7 @@ BODY, TABLE, TR, TD, SELECT,INPUT,DIV,SPAN,FORM,TEXTAREA
 	background-repeat:no-repeat;
    	}
  
- 	 /* Ÿ��Ʋ2 ����̹����� �ؽ�Ʈ �Ӽ� - ���콺 �̺�Ʈ�� �������� �⺻�϶�.*/
+ 	 /* 타占쏙옙틀2 占쏙옙占쏙옙譴占쏙옙占쏙옙占� 占쌔쏙옙트 占쌈쇽옙 - 占쏙옙占쎌스 占싱븝옙트占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占썩본占싹띰옙.*/
 	.Depth02on { 
 	font-size: 12px; 
 	line-height: 25px;
@@ -49,7 +49,7 @@ BODY, TABLE, TR, TD, SELECT,INPUT,DIV,SPAN,FORM,TEXTAREA
 	background-repeat:no-repeat;
   	}
   
-   /* Ÿ��Ʋ2 ����̹����� �ؽ�Ʈ �Ӽ� - ���콺 �̺�Ʈ�� �������� �⺻�϶�.*/
+   /* 타占쏙옙틀2 占쏙옙占쏙옙譴占쏙옙占쏙옙占� 占쌔쏙옙트 占쌈쇽옙 - 占쏙옙占쎌스 占싱븝옙트占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占썩본占싹띰옙.*/
 	.Depth02off { 
 	 font-size: 12px; 
 	line-height: 25px;
@@ -60,7 +60,7 @@ BODY, TABLE, TR, TD, SELECT,INPUT,DIV,SPAN,FORM,TEXTAREA
 	background-repeat:no-repeat;
   	}
 
-/* Ÿ��Ʋ3 ����̹����� �ؽ�Ʈ �Ӽ� */
+/* 타占쏙옙틀3 占쏙옙占쏙옙譴占쏙옙占쏙옙占� 占쌔쏙옙트 占쌈쇽옙 */
 	.Depth03 { 
 	font-size: 12px; 
 	line-height: 20px;
@@ -77,7 +77,7 @@ line-height: 5px;
 background-repeat:no-repeat;
 	}
 	
-/* Ÿ��Ʋ1 ����̹����� �ؽ�Ʈ �Ӽ� */	
+/* 타占쏙옙틀1 占쏙옙占쏙옙譴占쏙옙占쏙옙占� 占쌔쏙옙트 占쌈쇽옙 */	
 .layer_submenu_bg {
 	background-image:  url(/sample/images/left/menuLayerBg.gif);
 	background-position: right;
