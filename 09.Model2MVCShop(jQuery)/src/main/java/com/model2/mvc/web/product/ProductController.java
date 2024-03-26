@@ -1,6 +1,7 @@
 package com.model2.mvc.web.product;
 
 import java.io.File;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -56,35 +57,39 @@ public class ProductController {
 		
 		String uploadPath = "C:\\Users\\bitcamp\\git\\MVCShop09\\09.Model2MVCShop(jQuery)\\src\\main\\webapp\\images\\uploadFiles\\";
 		
-		MultipartFile file = request.getFile("fileName");
+		List<MultipartFile> file = request.getFiles("fileName");
 		
+		System.out.println(file.toString());
 		
+		for(MultipartFile i : file) {
+			String originalFileName = i.getOriginalFilename(); //파일명 받아오기
+			UUID uuid = UUID.randomUUID(); // Unique한 값 생성
+			
+			System.out.println("originalFileName : "+originalFileName + ", UUID : "+uuid);
+			
+			String fileName = uuid.toString() + "_" + originalFileName; // Unique 한 값고 기존 파일 명 합쳐서 중복되지 않는 이름으로 저장
+			
+			
+			
+			i.transferTo(new File(uploadPath+fileName));  // 파일 업로드할 경로에 지정한 파일명으로 업로드
+		}
 		
-		String originalFileName = file.getOriginalFilename(); //파일명 받아오기
-		UUID uuid = UUID.randomUUID(); // Unique한 값 생성
-		
-		System.out.println("originalFileName : "+originalFileName + ", UUID : "+uuid);
-		
-		String fileName = uuid.toString() + "_" + originalFileName; // Unique 한 값고 기존 파일 명 합쳐서 중복되지 않는 이름으로 저장
-		
-		
-		
-		file.transferTo(new File(uploadPath+fileName));  // 파일 업로드할 경로에 지정한 파일명으로 업로드
+
 		
 		product.setProdName(request.getParameter("prodName"));
 		product.setProdDetail(request.getParameter("prodDetail"));
 		product.setManuDate(request.getParameter("manuDate"));
 		product.setPrice(Integer.parseInt(request.getParameter("price")));
-		product.setFileName(fileName);
+		//product.setFileName(fileName);
 
 		if(product.getManuDate().contains("-")) {
 			String[] md = product.getManuDate().split("-");
 			product.setManuDate(md[0]+md[1]+md[2]);
 		}
 		System.out.println(product.toString());
-		request.setAttribute("product", product);
-		productService.addProduct(product);
 		
+		productService.addProduct(product);
+		request.setAttribute("product", product);
 		return "forward:/product/addProductResultView.jsp";
 	}
 	
