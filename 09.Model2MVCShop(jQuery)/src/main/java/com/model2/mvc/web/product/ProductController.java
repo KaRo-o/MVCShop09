@@ -25,8 +25,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartRequest;
 
+import com.model2.mvc.common.Image;
 import com.model2.mvc.common.Page;
 import com.model2.mvc.common.Search;
+import com.model2.mvc.service.Image.ImageService;
 import com.model2.mvc.service.domain.Product;
 import com.model2.mvc.service.product.ProductService;
 
@@ -37,6 +39,10 @@ public class ProductController {
 	@Autowired
 	@Qualifier("productServiceImpl")
 	private ProductService productService;
+	
+	@Autowired
+	@Qualifier("imageServiceImpl")
+	private ImageService imageService;
 	
 	
 	@Value("#{commonProperties['pageUnit']}")
@@ -54,14 +60,22 @@ public class ProductController {
 	public String addProduct(MultipartHttpServletRequest request) throws Exception {
 									
 		Product product = new Product();
+		Image image = new Image();
 		
-		String uploadPath = "C:\\Users\\bitcamp\\git\\MVCShop09\\09.Model2MVCShop(jQuery)\\src\\main\\webapp\\images\\uploadFiles\\";
+		
+		//String uploadPath = "C:\\Users\\bitcamp\\git\\MVCShop09\\09.Model2MVCShop(jQuery)\\src\\main\\webapp\\images\\uploadFiles\\";
+		String uploadPath = "C:\\Users\\nghng\\git\\MVCShop09\\09.Model2MVCShop(jQuery)\\src\\main\\webapp\\images\\uploadFiles\\";
 		
 		List<MultipartFile> file = request.getFiles("fileName");
 		
 		System.out.println(file.toString());
 		
+		UUID fileKey = UUID.randomUUID();
+		product.setFileName(fileKey.toString());
+		image.setFileKey(fileKey.toString());
+		
 		for(MultipartFile i : file) {
+			if(i!=null) {
 			String originalFileName = i.getOriginalFilename(); //파일명 받아오기
 			UUID uuid = UUID.randomUUID(); // Unique한 값 생성
 			
@@ -69,9 +83,10 @@ public class ProductController {
 			
 			String fileName = uuid.toString() + "_" + originalFileName; // Unique 한 값고 기존 파일 명 합쳐서 중복되지 않는 이름으로 저장
 			
-			
-			
+			image.setFileName(fileName);
+			imageService.addImage(image);
 			i.transferTo(new File(uploadPath+fileName));  // 파일 업로드할 경로에 지정한 파일명으로 업로드
+			}
 		}
 		
 

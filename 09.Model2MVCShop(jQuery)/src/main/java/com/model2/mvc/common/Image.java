@@ -10,7 +10,7 @@ public class Image {
 	}
 
 	public String getFileKey() {
-		return fileKey;
+		return fileKey; 
 	}
 
 	public void setFileKey(String fileKey) {
