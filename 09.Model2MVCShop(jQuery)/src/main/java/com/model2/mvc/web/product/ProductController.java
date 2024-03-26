@@ -1,11 +1,14 @@
 package com.model2.mvc.web.product;
 
+import java.io.File;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.MultipartRequest;
 
 import com.model2.mvc.common.Page;
 import com.model2.mvc.common.Search;
@@ -45,36 +50,39 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/addProduct", method=RequestMethod.POST)
-	public String addProduct( @RequestParam String prodName,
-			@RequestParam String prodDetail,
-			@RequestParam String manuDate,
-			@RequestParam int price,
-			@RequestParam MultipartFile file) throws Exception {
+	public String addProduct(MultipartHttpServletRequest request) throws Exception {
 									
 		Product product = new Product();
 		
-		product.setProdName(prodName);
-		product.setProdDetail(prodDetail);
-		product.setManuDate(manuDate);
-		product.setPrice(price);
+		String uploadPath = "C:\\Users\\bitcamp\\git\\MVCShop09\\09.Model2MVCShop(jQuery)\\src\\main\\webapp\\images\\uploadFiles\\";
 		
-		System.out.println(product);
+		MultipartFile file = request.getFile("fileName");
 		
 		
+		
+		String originalFileName = file.getOriginalFilename(); //파일명 받아오기
+		UUID uuid = UUID.randomUUID(); // Unique한 값 생성
+		
+		System.out.println("originalFileName : "+originalFileName + ", UUID : "+uuid);
+		
+		String fileName = uuid.toString() + "_" + originalFileName; // Unique 한 값고 기존 파일 명 합쳐서 중복되지 않는 이름으로 저장
+		
+		
+		
+		file.transferTo(new File(uploadPath+fileName));  // 파일 업로드할 경로에 지정한 파일명으로 업로드
+		
+		product.setProdName(request.getParameter("prodName"));
+		product.setProdDetail(request.getParameter("prodDetail"));
+		product.setManuDate(request.getParameter("manuDate"));
+		product.setPrice(Integer.parseInt(request.getParameter("price")));
+		product.setFileName(fileName);
+
 		if(product.getManuDate().contains("-")) {
 			String[] md = product.getManuDate().split("-");
 			product.setManuDate(md[0]+md[1]+md[2]);
 		}
-		/*
-		MultipartFile file = product.getUploadFile();
-		
-		String originalFileName = file.getOriginalFilename();
-		String FileName = file.getName();
-		
-		System.out.println("original : "+originalFileName);
-		System.out.println("getName : "+FileName);
-		*/
-		
+		System.out.println(product.toString());
+		request.setAttribute("product", product);
 		productService.addProduct(product);
 		
 		return "forward:/product/addProductResultView.jsp";
