@@ -83,4 +83,11 @@
 		
 	</bean>
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <!-- 최대 파일 크기 -->
+	    <property name="maxUploadSize" value="10485760"/> <!-- 10MB -->
+	    <!-- 최대 요청 크기 -->
+	    <property name="maxUploadSizePerFile" value="10485760"/> <!-- 10MB -->
+	</bean>
+	
 </beans>
