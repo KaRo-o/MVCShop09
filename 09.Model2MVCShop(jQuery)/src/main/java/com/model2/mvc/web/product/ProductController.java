@@ -63,8 +63,8 @@ public class ProductController {
 		Image image = new Image();
 		
 		
-		//String uploadPath = "C:\\Users\\bitcamp\\git\\MVCShop09\\09.Model2MVCShop(jQuery)\\src\\main\\webapp\\images\\uploadFiles\\";
-		String uploadPath = "C:\\Users\\nghng\\git\\MVCShop09\\09.Model2MVCShop(jQuery)\\src\\main\\webapp\\images\\uploadFiles\\";
+		String uploadPath = "C:\\Users\\bitcamp\\git\\MVCShop09\\09.Model2MVCShop(jQuery)\\src\\main\\webapp\\images\\uploadFiles\\";
+		//String uploadPath = "C:\\Users\\nghng\\git\\MVCShop09\\09.Model2MVCShop(jQuery)\\src\\main\\webapp\\images\\uploadFiles\\";
 		
 		List<MultipartFile> file = request.getFiles("fileName");
 		
@@ -129,8 +129,10 @@ public class ProductController {
 										throws Exception {
 		
 		Product product = productService.getProduct(prodNo);
-		
+		Map<String, Object> map = imageService.getImages(product.getFileName());
 		model.addAttribute("product",product);
+		model.addAttribute("files", map.get("fileList"));
+		
 		
 		String history = "";
 		Cookie[] cookies = request.getCookies();

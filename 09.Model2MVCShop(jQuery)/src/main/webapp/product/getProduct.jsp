@@ -1,5 +1,6 @@
 
 <%@page import="com.model2.mvc.service.domain.Product"%>
+<%@ taglib prefix="c"	uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -75,7 +76,10 @@ Product vo = (Product)request.getAttribute("vo");
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<img src = "/images/uploadFiles/${product.fileName }"/>
+			<c:set var="i" value="0"></c:set>
+			<c:forEach var="files" items="${files }">
+				<img src = "/images/uploadFiles/${files.fileName}"/>
+			</c:forEach>
 		</td>
 	</tr>
 	<tr>

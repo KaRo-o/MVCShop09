@@ -18,7 +18,11 @@
 		VALUES ( #{fileKey}, #{fileName}	)
 	</insert>
 	
-	
+	<select id="getImages" parameterType="String" resultMap="imageSelectMap">
+		Select *
+		FROM image
+		WHERE file_key = #{fileKey}
+	</select>
 	
 	
 	
